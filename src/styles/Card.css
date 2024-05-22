@@ -74,3 +74,28 @@
   color: #6366f1;
   margin-left: 0.25rem;
 }
+
+@media (min-width: 640px) {
+  .product-vendor,
+  .product-title,
+  .product-price,
+  .product-mrp,
+  .product-discount {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-info {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .product-vendor,
+  .product-title,
+  .product-price,
+  .product-mrp,
+  .product-discount {
+    font-size: 1.125rem;
+  }
+}

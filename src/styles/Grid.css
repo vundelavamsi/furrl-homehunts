@@ -36,3 +36,15 @@
   text-align: center;
   padding: 1rem;
 }
+
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 32%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 23%);
+  }
+}
