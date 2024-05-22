@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "../styles/Grid.css";
-import Card from "./Card";
+import "../styles/ProductList.css";
+import ProductItem from "./ProductItem";
 
-const Grid = () => {
+const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [productsLength, setProductsLength] = useState(0);
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -51,7 +52,7 @@ const Grid = () => {
           ...prevProducts,
           ...uniqueProducts,
         ]);
-        
+        setProductsLength(products.length)
         setHasMore(newProducts.length === 10);
         setCurrentPage((prevPage) => prevPage + 1);
       } else {
@@ -85,13 +86,13 @@ const Grid = () => {
 
   return (
     <div className="grid-container">
-      <div className="product-count">300 Products</div>
+      <div className="product-count">{productsLength} Products</div>
       {error ? (
         <div className="error">{error}</div>
       ) : (
         <div className="product-grid">
           {products.map((product, index) => (
-            <Card key={`${product.id}-${index}`}  product={product} />
+            <ProductItem key={`${product.id}-${index}`}  product={product} />
           ))}
           {hasMore && <div className="loading">Loading...</div>}
         </div>
@@ -100,4 +101,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default ProductList;

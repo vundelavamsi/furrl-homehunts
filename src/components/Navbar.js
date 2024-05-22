@@ -1,9 +1,10 @@
 import React from "react";
-import "../styles/Header.css";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="header-container">
+    <>
+      <nav className="header-container">
         <a href="https://furrl.in/wishlist" className="header-icon-link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +46,15 @@ const Navbar = () => {
             </g>
           </svg>
         </a>
-    </nav>
+      </nav>
+      <div className="header-image-container">
+        <img
+          src="https://cdn.furrl.in/vibes/VibeCard_HomeHunts.jpg"
+          alt="Home Hunts Vibe Card"
+          className="header-image"
+        />
+      </div>
+    </>
   );
 };
 

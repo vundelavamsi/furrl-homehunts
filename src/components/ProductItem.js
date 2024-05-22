@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import SharePopup from "../components/SharePopup";
-import "../styles/Card.css";
+import SharePopup from "./SharePopup";
+import "../styles/ProductItem.css";
 
-const Card = ({ product }) => {
+const ProductItem = ({ product }) => {
   const productUrl = `https://furrl.in/productDetail?id=${product.id}&ref=vibeResults_HomeHunts`;
   const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
 
@@ -59,4 +59,4 @@ const Card = ({ product }) => {
   );
 };
 
-export default Card;
+export default ProductItem;
