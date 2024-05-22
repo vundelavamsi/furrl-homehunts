@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Product Listing and Sharing App(Furrl)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application that displays a grid of products and allows users to share product links. The app fetches product data from an external API and supports infinite scrolling to load more products as the user scrolls down.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [API](#api)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fetch and display products from an API.
+- Infinite scrolling to load more products.
+- Share product links via a popup with a copy-to-clipboard feature.
+- Responsive design for different screen sizes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. **Clone the repository:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/vundelavamsi/furrl-homehunts
+   cd furrl-homehunts
+   ```
+2. **Install dependencies:**
 
-### `npm run build`
+    ```bash
+        npm install
+    ```
+3. **Start the development server:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+        npm start
+    ```
+    The app will be available at `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Viewing Products:**
 
-### `npm run eject`
+    Open the application in your browser. Products will be displayed in a grid format. Scroll down to load more products.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Sharing Products:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Click on the share button on any product to open the share popup. You can copy the product link to the clipboard.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Components
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Grid Component:**
 
-## Learn More
+    The `Grid` component fetches and displays a list of products with infinite scrolling.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    File: `src/components/Grid.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Card Component:**
 
-### Code Splitting
+    The `Card` component displays individual product details and a share button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    File: `src/components/Card.js`
 
-### Analyzing the Bundle Size
+3. **SharePopup Component:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    The `SharePopup` component shows a popup with the product link and a copy-to-clipboard button.
 
-### Making a Progressive Web App
+    File: `src/components/SharePopup.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    ### CSS Files
 
-### Advanced Configuration
+    Styles for the components are defined in external CSS files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    **Grid CSS:** `src/styles/Grid.css`
 
-### Deployment
+    **Card CSS:** `src/styles/Card.css`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    **SharePopup CSS:** `src/styles/SharePopup.css`
 
-### `npm run build` fails to minify
+## API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The app fetches product data from the following API endpoint:
+
+ - Endpoint: https://api.furrl.in/api/v2/listing/getListingProducts
+
+ - Method: POST
+
+ - Request Body:
+    ```json
+        {
+            "input": {
+                "page": 1,
+                "pageSize": 10,
+                "filters": [],
+                "id": "#HomeHunts",
+                "entity": "vibe"
+            }
+        }
+
+    ```
