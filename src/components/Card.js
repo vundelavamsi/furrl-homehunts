@@ -1,7 +1,18 @@
+import { useState } from 'react';
+import SharePopup from "../components/SharePopup";
 import "../styles/Card.css";
 
 const Card = ({ product }) => {
   const productUrl = `https://furrl.in/productDetail?id=${product.id}&ref=vibeResults_HomeHunts`;
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+
+  const handleShareClick = () => {
+    setIsSharePopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsSharePopupOpen(false);
+  };
 
   return (
     <div className="card-container">
@@ -10,7 +21,7 @@ const Card = ({ product }) => {
         alt={product.title}
         className="product-image"
       />
-      <button className="share-button">
+      <button className="share-button" onClick={handleShareClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="21"
@@ -30,7 +41,9 @@ const Card = ({ product }) => {
           ></path>
         </svg>
       </button>
-
+      {isSharePopupOpen && (
+        <SharePopup productUrl={productUrl} onClose={handleClosePopup} />
+      )}
       <a href={productUrl} className="group block">
         <div className="product-info">
           <h3 className="product-vendor">{product.vendor}</h3>

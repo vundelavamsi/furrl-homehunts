@@ -23,10 +23,6 @@
 }
 
 .product-grid {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%; */
   display: grid;
   grid-gap: 12px 4px;
   gap: 12px 4px;

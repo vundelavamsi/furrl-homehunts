@@ -52,9 +52,6 @@ const Grid = () => {
           ...uniqueProducts,
         ]);
         
-        // console.log(products);
-        // console.log(newProducts);
-        
         setHasMore(newProducts.length === 10);
         setCurrentPage((prevPage) => prevPage + 1);
       } else {

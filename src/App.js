@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar'
-import './App.css';
 import Grid from './components/Grid';
+import './App.css';
 
 function App() {
   return (
